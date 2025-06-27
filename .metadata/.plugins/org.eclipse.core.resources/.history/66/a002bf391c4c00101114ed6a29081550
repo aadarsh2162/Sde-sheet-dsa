@@ -1,0 +1,123 @@
+package dsa.supai;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
+
+class Employee1 implements Comparable<Employee>{
+	Integer employeeId;
+	String firstName;
+	String lastName;
+	Integer age;
+    Integer salary;
+	public Employee1(Integer employeeId, String firstName, String lastName, Integer age, Integer salary) {
+		super();
+		this.employeeId = employeeId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+		this.salary = salary;
+	}
+	@Override
+	public String toString() {
+		return "Employee1 [employeeId=" + employeeId + ", firstName=" + firstName + ", lastName=" + lastName + ", age="
+				+ age + ", salary=" + salary + "]";
+	}
+	
+	
+	
+    
+    
+}
+public class Main2 {
+	
+	
+	public static void main(String[] args) {
+		File file = null;
+		
+	try {
+		 file = new File("employee_data.txt");
+		file.createNewFile();
+		FileWriter writer1 = new FileWriter(file);
+		BufferedWriter  Writer2 = new BufferedWriter(writer1);
+		Writer2.append("employeeId,firstName,lastName,age,salary");
+		Writer2.newLine();
+		Writer2.append("123,Alice,wonderland,28,55000");
+		Writer2.newLine();
+		Writer2.append("456,Bob,Builder,32,60000");
+		Writer2.newLine();
+		Writer2.append("789,Charlie,Brown,25,48000");
+		Writer2.newLine();
+		Writer2.append("101,David,CopperField,30,52000");
+		Writer2.newLine();
+		Writer2.append("234,Eve,Green,27,58000");
+		Writer2.newLine();
+		Writer2.append("235,Alice,Copper,27,54000");
+		Writer2.newLine();
+		
+      Writer2.flush();
+    //  Writer2.close();
+      writer1.flush();
+   //   writer1.close();
+	
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+		
+	try {
+		FileReader fileReader = new FileReader(file);
+		BufferedReader reader = new BufferedReader(fileReader);
+		
+		try {
+			while(reader.ready()) {
+            System.out.println(reader.readLine());		 
+					
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	} catch (FileNotFoundException e) {
+		e.printStackTrace();
+	}
+	
+	
+	Employee1 e1 = new Employee1(123,"Alice","wonderland",28,55000);
+	Employee1 e2 = new Employee1(456,"Bob","Builder",32,60000);
+	Employee1 e3 = new Employee1(789,"Charlie","Brown",25,48000);
+	Employee1 e4 = new Employee1(234,"Eve","Green",27,58000);
+	Employee1 e5 = new Employee1(235,"Alice","Copper",27,54000);
+	
+	
+	
+	ArrayList<Employee1> l1 = new ArrayList<Employee1>();
+	
+	l1.add(e1);
+	l1.add(e2);
+	l1.add(e3);
+	l1.add(e4);
+	l1.add(e5);
+	
+	
+	
+	Collections.sort(l1, (o1,o2)-> o1.firstName.compareTo(o2.firstName));
+	
+	System.out.println(l1);
+	
+	
+	
+	
+
+		
+		
+	}
+
+}

@@ -1,0 +1,30 @@
+package dsa.array;
+
+import java.util.Arrays;
+
+public class MajorityElement {
+	public static void main(String[] args) {
+		MajorityElement element = new MajorityElement();
+		int[] num1 = {2};
+		System.out.println(element.majorityElement(num1));
+	}
+   public int majorityElement(int[] nums) {
+      int count = 0;
+      int max = 0;
+      System.out.println(nums.length);
+      for(int i= 0; i< nums.length -1; i++) {
+    	  if(nums.length == 1) return nums[i];
+    	  if(nums[i] == nums[i + 1]) {
+    		  count++;
+    		  max =nums[i];
+    	  }
+    	  else if(count == 0) {
+    		  max = nums[i + 1];
+    	  }
+    	  else count--;
+      }
+ 
+   return max;
+   }
+
+}

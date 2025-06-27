@@ -1,0 +1,7 @@
+employeeId,firstName,lastName,age,salary
+123,Alice,wonderland,28,55000
+456,Bob,Builder,32,60000
+789,Charlie,Brown,25,48000
+101,David,CopperField,30,52000
+234,Eve,Green,27,58000
+235,Alice,Copper,27,54000

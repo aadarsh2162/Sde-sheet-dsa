@@ -1,0 +1,34 @@
+package dsa.string;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class FirstUniqueCharacterInAString {
+	public static void main(String[] args) {
+		String s =  "abccbaacz";
+		
+		
+		FirstUniqueCharacterInAString string = new FirstUniqueCharacterInAString();
+		System.out.println(string.firstUniqChar(s));
+	}
+	public char firstUniqChar(String s) {
+        LinkedHashMap<Character,Integer> map =  new LinkedHashMap<Character, Integer>();
+        
+        for(int i = 0; i <s.length(); i++) {
+        	map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0) + 1);
+        }
+        
+        System.out.println(map);
+        char ch = ' ';
+        for(Map.Entry<Character, Integer>   entry : map.entrySet()) {
+        	if(entry.getValue() == 2) {
+        	       ch = entry.getKey() ;
+        	       break;
+        	}
+        }
+        System.out.println(ch);
+        return ch;
+    }
+
+}

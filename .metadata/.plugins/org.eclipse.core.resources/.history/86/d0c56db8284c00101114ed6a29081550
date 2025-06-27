@@ -1,0 +1,80 @@
+package dsa.supai;
+
+import java.io.*;
+import java.util.*;
+
+class Employee1 implements Comparable<Employee1> {
+	Integer employeeId;
+	String firstName;
+	String lastName;
+	Integer age;
+	Integer salary;
+
+	public Employee1(Integer employeeId, String firstName, String lastName, Integer age, Integer salary) {
+		this.employeeId = employeeId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+		this.salary = salary;
+	}
+
+	@Override
+	public String toString() {
+		return "[employeeId=" + employeeId + ", firstName=" + firstName + ", lastName=" + lastName +
+				", age=" + age + ", salary=" + salary + "]";
+	}
+
+	@Override
+	public int compareTo(Employee1 o) {
+		int cmp = this.firstName.compareTo(o.firstName);
+		if (cmp == 0) {
+			return this.age.compareTo(o.age);
+		}
+		return cmp;
+	}
+}
+
+public class Main2 {
+	public static void main(String[] args) {
+		File file = new File("employee_data.txt");
+
+		// Writing data
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+			writer.write("employeeId,firstName,lastName,age,salary");
+			writer.newLine();
+			writer.write("123,Alice,wonderland,28,55000\n");
+			writer.write("456,Bob,Builder,32,60000\n");
+			writer.write("789,Charlie,Brown,25,48000\n");
+			writer.write("101,David,CopperField,30,52000\n");
+			writer.write("234,Eve,Green,27,58000\n");
+			writer.write("235,Alice,Copper,27,54000\n");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		ArrayList<Employee1> list = new ArrayList<>();
+
+		// Reading data
+		try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+			reader.readLine(); // Skip header
+			String line;
+			while ((line = reader.readLine()) != null) {
+				String[] str = line.split(",");
+				Employee1 e = new Employee1(
+					Integer.parseInt(str[0]), str[1], str[2],
+					Integer.parseInt(str[3]), Integer.parseInt(str[4])
+				);
+				list.add(e);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		Collections.sort(list);
+
+		// Output sorted list
+		for (Employee1 e : list) {
+			System.out.println(e);
+		}
+	}
+}

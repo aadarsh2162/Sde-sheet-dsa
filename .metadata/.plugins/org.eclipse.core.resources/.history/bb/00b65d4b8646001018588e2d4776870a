@@ -1,0 +1,27 @@
+package dsa.array;
+
+
+public class SubarraySumEqualsK {
+	
+	public static void main(String[] args) {
+		SubarraySumEqualsK equalsK =  new SubarraySumEqualsK();
+		int[] num = {1,1,1};
+		System.out.println(equalsK.subarraySum(num, 2));
+	}
+	 public int subarraySum(int[] nums, int k) {
+	       
+	        int length = 0;
+	        for(int i = 0; i < nums.length - 1; i++){
+	           int sum = nums[i];
+	           for(int j = 0; j < nums.length; j++) {
+	        	   sum += nums[j];
+	        	   if(sum == k) {
+	        		   length++;
+	        		   break;
+	        	   }
+	           }
+
+	        }
+	        return length;
+	    }
+}

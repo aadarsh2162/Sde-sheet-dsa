@@ -1,0 +1,34 @@
+package dsa.string;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class ValidAnagram {
+	public static void main(String[] args) {
+		
+		System.out.println(new ValidAnagram().isAnagram("anagram",  "nagaram"));
+		System.out.println(new ValidAnagram().isAnagram("rat",  "car"));
+		
+	}
+	   public boolean isAnagram(String s, String t) {
+	        HashMap<Character , Integer> map = new HashMap<>();
+	        
+	        for(int i = 0; i < s.length(); i++) {
+	        	map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0) + 1);
+	        	map.put(t.charAt(i), map.getOrDefault(t.charAt(i), 0) + 1);
+	        	
+	        }
+	        
+	        for(Map.Entry<Character, Integer> pair : map.entrySet()) {
+	        	
+	        	if(pair.getValue() % 2 == 1) {
+	        		return false;
+	        	}
+	        	
+	        }
+	        return true;
+	        
+	        
+	    }
+
+}

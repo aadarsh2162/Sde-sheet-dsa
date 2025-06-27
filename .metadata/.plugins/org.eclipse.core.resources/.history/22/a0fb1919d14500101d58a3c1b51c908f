@@ -1,0 +1,54 @@
+package dsa.array;
+
+import java.util.Arrays;
+
+public class NextPermutation {
+
+	public static void main(String[] args) {
+		NextPermutation nextPermutation =  new NextPermutation();
+		int[] num = {2,1,5,4,3,0,0};
+		int[] num1 = {1,2,3};
+		int[] num2 = {3,2,1};
+		
+		
+		nextPermutation.nextPermutation(num2);
+	}
+	 public void nextPermutation(int[] nums) {
+	       int index = - 1;
+	       int n  = nums.length;
+	       for(int i = n - 2; i >= 0;  i--) {
+	    	   if(nums[i] < nums[i+1]) {
+	    		   index = i;
+	    		   break;
+	    	   }
+	       }
+	       
+	       if(index == -1) {
+	    	   int j = n - 1;
+	    	   for(int i = 0; i <= n / 2 ; i++ , j-- ) {
+	    		   nums[i] = nums[i] + nums[j];
+	    		   nums[j] = nums[i] - nums[j];
+	    		   nums[i] = nums[i] - nums[j];
+	    		   
+	    		
+	    	   }
+	    	 }
+	       else if(index > -1) {
+	    	   for(int i = n - 1; i >= index; i--) {
+	    		   if(nums[index] < nums[i]) {
+	    			   nums[i] = nums[i] + nums[index];
+	    			   nums[index] = nums[i] - nums[index];
+	    			   nums[i] = nums[i] - nums[index];
+	    			   break;
+	    		   }
+	    	   }
+	    	   Arrays.sort(nums, index + 1, n);
+	    	   
+	    	   
+	    	   
+	    	   
+	       }
+	     
+    	   System.out.println(Arrays.toString(nums));
+	    }
+}

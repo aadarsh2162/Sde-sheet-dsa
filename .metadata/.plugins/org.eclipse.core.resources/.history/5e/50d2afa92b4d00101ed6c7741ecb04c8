@@ -1,0 +1,15 @@
+package dsa.string;
+
+public class ValidAnagram {
+	public static void main(String[] args) {
+		
+		System.out.println(new ValidAnagram().isAnagram("anagram",  "nagaram"));
+		
+	}
+	   public boolean isAnagram(String s, String t) {
+	      boolean b =  s.contains(t);
+	      System.out.println(b);
+	      return b;
+	    }
+
+}

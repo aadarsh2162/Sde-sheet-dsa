@@ -1,0 +1,37 @@
+package dsa.supai;
+
+import java.util.ArrayList;
+
+class Employee1{
+	Integer employeeId;
+	String firstName;
+	String lastName;
+	Integer age;
+    Integer salary;
+	public Employee1(Integer employeeId, String firstName, String lastName, Integer age, Integer salary) {
+		super();
+		this.employeeId = employeeId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+		this.salary = salary;
+	}
+    
+    
+}
+public class Main3 {
+	public static void main(String[] args) {
+		
+		Employee1 e1 = new Employee1(123,"Alice","wonderland",28,55000);
+		Employee1 e2 = new Employee1(456,"Bob","Builder",32,60000);
+		Employee1 e3 = new Employee1(789,"Charlie","Brown",25,48000);
+		Employee1 e4 = new Employee1(234,"Eve","Green",27,58000);
+		Employee1 e5 = new Employee1(123,"Alice","wonderland",28,55000);
+		ArrayList<Employee1> list1 = new ArrayList<Employee1>();
+		
+		list1.add(e1);
+		
+		
+	}
+
+}
