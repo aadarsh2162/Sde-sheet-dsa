@@ -1,11 +1,6 @@
 package dsa.binary_search;
 
 import java.util.Arrays;
-/*
- * time complexity O(logn)
- * space complexity O(n) result array we consider as a constant
- */
-
 
 public class FirstAndLastPositionofElementInSortedArray {
    public static void main(String[] args) {
@@ -65,8 +60,6 @@ public class FirstAndLastPositionofElementInSortedArray {
            else low = mid + 1;
        }
        return last;
+
  }
-   
-   
-   
 }
